@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maisons Éco - Vallée Verte</title>
+  </head>
+  <body>
+    <div class="conteneur-externe">
+      <div class="conteneur">
+        <!-- header -->
+        <header aria-label="En-tête" class="en-tete-site" role="banner">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div class="marque">Maisons Éco</div>
+            <nav aria-label="navigation principale" class="principal">
+              <a href="#home">Accueil</a>
+              <a href="#catalog">Catalogue des biens</a>
+              <a href="#about">À propos</a>
+              <a href="#contacts">Contacts</a>
+              <a href="#mortgage">Calculateur</a>
+            </nav>
+          </div>
+          <div style="display:flex; gap:12px; align-items:center;">
+            <button aria-label="Poser une question" class="bouton-question">Poser une question</button>
+          </div>
+        </header>
+
+        <!-- Hero -->
+        <section aria-label="Vallée Verte" class="hero" id="home">
+          <div aria-hidden="true" class="arriere-plan"></div>
+          <div class="contenu-hero">
+            <h1>Vallée Verte</h1>
+            <p>Des maisons modernes avec des technologies écoénergétiques et des paysages naturels uniques.</p>
+          </div>
+        </section>
+
+        <!-- Carte à propos -->
+        <div aria-labelledby="titre-a-propos" class="carte-a-propos" id="about">
+          <div class="gauche">
+            <h3 id="titre-a-propos">À propos du projet</h3>
+            <p>
+              Vallée Verte est un complexe résidentiel premium situé dans le district de Ramenskoye, en banlieue de Moscou, où l'architecture moderne s'harmonise parfaitement avec les paysages naturels.
+              Tout est pensé dans les moindres détails pour créer un espace qui offre confort et intimité, tout en restant connecté aux commodités de la civilisation. Chaque maison est conçue avec des technologies économes en énergie et des matériaux écologiques.
+            </p>
+            
+            <!-- Statistiques -->
+            <div aria-hidden="false" class="statistiques">
+              <div class="element-stat">
+                <div class="nombre">40 000</div>
+                <div class="libelle">m² de territoire aménagé</div>
+              </div>
+              <div class="element-stat">
+                <div class="nombre">Espaces</div>
+                <div class="libelle">de loisirs et détente</div>
+              </div>
+              <div class="element-stat">
+                <div class="nombre">1–3</div>
+                <div class="libelle">étages par maison</div>
+              </div>
+              <div class="element-stat">
+                <div class="nombre">4</div>
+                <div class="libelle">parkings privés</div>
+              </div>
+              <div class="element-stat">
+                <div class="nombre">Jardins</div>
+                <div class="libelle">espaces verts paysagers</div>
+              </div>
+              <div class="element-stat">
+                <div class="nombre">Piscine</div>
+                <div class="libelle">piscine commune</div>
+              </div>
+            </div>
+            
+            <div style="margin-top:12px; color:var(--muted)">📍 Localisation : Banlieue de Moscou, district de Ramenskoye</div>
+          </div>
+          
+          <div class="droite">
+            <div class="vignette">
+              <img alt="Aperçu du projet" src="https://www.domodeco.fr/wp-content/uploads/2018/11/maison-contemporaine-realisee-par-naao-architecture-a-lyon-caluire-01.jpg"/>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tuiles d'action -->
+        <div aria-label="Actions rapides" class="tuiles-action" role="list">
+          <div aria-label="Voir les maisons" class="tuile" role="listitem">
+            <div aria-hidden="true" class="icone">
+              <svg aria-hidden="true" fill="none" height="32" viewbox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 10.5L12 3l9 7.5" stroke="#2f401e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
+                <path d="M5 21V11h14v10" stroke="#2f401e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
+                <path d="M9 21v-6h6v6" stroke="#2f401e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
+              </svg>
+            </div>
+            <div class="titre">Voir les maisons</div>
+            <div class="sous-titre">Parcourir les biens</div>
+          </div>
+          
+          <div aria-label="Excursion" class="tuile" role="listitem">
+            <div aria-hidden="true" class="icone">
+              <svg aria-hidden="true" fill="none" height="32" viewbox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="9" stroke="#2f401e" stroke-width="1.6"></circle>
+                <path d="M16 8l-4.5 2L8 16l4.5-2L16 8z" fill="none" stroke="#2f401e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path>
+              </svg>
+            </div>
+            <div class="titre">Excursion</div>
+            <div class="sous-titre">Visite du complexe</div>
+          </div>
+          
+          <div aria-label="Calculer l'hypothèque" class="tuile accentuee" id="jumpCalc" role="listitem">
+            <div aria-hidden="true" class="icone">
+              <svg aria-hidden="true" fill="none" height="32" viewbox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg">
+                <rect height="20" rx="2" stroke="currentColor" stroke-width="1.6" width="12" x="6" y="2"></rect>
+                <path d="M8 7h8M8 11h8" stroke="currentColor" stroke-linecap="round" stroke-width="1.4"></path>
+                <path d="M9 16h.01M12 16h.01M15 16h.01" stroke="currentColor" stroke-linecap="round" stroke-width="1.6"></path>
+              </svg>
+            </div>
+            <div class="titre">Calculer l'hypothèque</div>
+            <div class="sous-titre">Renseignez vos paramètres</div>
+          </div>
+          
+          <div aria-label="Télécharger la brochure" class="tuile" role="listitem">
+            <div aria-hidden="true" class="icone">
+              <svg aria-hidden="true" fill="none" height="32" viewbox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 3h7l5 5v11a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V3z" stroke="#2f401e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
+                <path d="M12 3v5h5" stroke="#2f401e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
+                <path d="M9 13h6M9 17h6" stroke="#2f401e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4"></path>
+              </svg>
+            </div>
+            <div class="titre">Télécharger la brochure</div>
+            <div class="sous-titre">PDF &amp; plans</div>
+          </div>
+          
+          <div aria-label="Nouveau" class="tuile" role="listitem">
+            <div aria-hidden="true" class="icone"></div>
+            <div class="titre">Nouveau</div>
+            <div class="sous-titre">Action</div>
+          </div>
+        </div>
+
+        <!-- Section financière -->
+        <section class="section-financiere">
+          <!-- En-tête -->
+          <div class="en-tete">
+            <h1>Hypothèque 4,5 % sur toute la durée</h1>
+            <p>
+              Imaginez que votre rêve d'une maison idéale devienne accessible grâce à une
+              hypothèque avantageuse avec des conditions confortables.<br/>
+              Taux bas, maximum de commodité et aucune surprise !
+            </p>
+          </div>
+          
+          <!-- Bloc principal : trois cartes -->
+          <div class="contenu-financier">
+            <!-- Carte 1 : Calculateur -->
+            <div class="carte carte-calcul">
+              <h2 style="margin:0;font-size:16px">Calculer vos avantages</h2>
+              <div class="champ" style="margin-top:8px">
+                <label style="font-size:13px;margin-bottom:4px">Prix du bien</label>
+                <input id="price" max="20000000" min="1000000" step="100000" type="range" value="15800000"/>
+                <div class="valeur" id="price-value" style="font-weight:700;margin-top:6px">15 800 000 ₽</div>
+              </div>
+              <div class="champ" style="margin-top:6px">
+                <label style="font-size:13px;margin-bottom:4px">Paiement initial</label>
+                <input id="down" max="15800000" min="0" step="100000" type="range" value="3160000"/>
+                <div class="valeur" id="down-value" style="font-weight:700;margin-top:6px">3 160 000 ₽</div>
+              </div>
+              <div class="champ" style="margin-top:6px">
+                <label style="font-size:13px;margin-bottom:4px">Durée de l'hypothèque (années)</label>
+                <input id="years" max="40" min="5" step="5" type="range" value="30"/>
+                <div class="valeur" id="years-value" style="font-weight:700;margin-top:6px">30 ans</div>
+              </div>
+              <div class="resultat" style="margin-top:8px;font-size:13px">
+                <p style="margin:4px 0"><strong>Part de l'apport :</strong> <span id="percent">20 %</span></p>
+                <p style="margin:4px 0"><strong>Montant du prêt :</strong> <span id="loan">12 640 000 ₽</span></p>
+              </div>
+            </div>
+            
+            <!-- Carte 2 : Hypothèque standard -->
+            <div class="carte carte-standard">
+              <h2 style="margin:0;font-size:16px">Hypothèque standard</h2>
+              <ul style="margin:6px 0 0 0;padding:0;font-size:13px;line-height:1.35">
+                <li style="margin-bottom:6px"><strong>Taux d'intérêt :</strong> 21 % pour toute la durée</li>
+                <li style="margin-bottom:6px"><strong>Paiement mensuel :</strong> 221 630 ₽</li>
+                <li style="margin-bottom:6px"><strong>Économie :</strong> 0 ₽</li>
+              </ul>
+              <button class="bouton-action" style="margin-top:8px;padding:8px 14px;font-size:13px">Obtenir une hypothèque</button>
+            </div>
+            
+            <!-- Carte 3 : Hypothèque économique -->
+            <div class="carte carte-eco">
+              <h2 style="margin:0;font-size:16px">Hypothèque économique 4,5 %</h2>
+              <p class="sous-titre" style="margin:6px 0 0 0;font-size:13px;opacity:0.9">Avantageuse sur toute la durée</p>
+              <ul style="margin:6px 0 0 0;padding:0;font-size:13px;line-height:1.35">
+                <li style="margin-bottom:6px"><strong>Taux d'intérêt :</strong> 4,5 %</li>
+                <li style="margin-bottom:6px"><strong>Paiement mensuel :</strong> 64 045 ₽</li>
+                <li style="margin-bottom:6px"><strong>Économie :</strong> 157 555 ₽</li>
+                <li style="margin-bottom:6px"><strong>Montant estimé :</strong> 56 730 510 ₽</li>
+              </ul>
+              <div class="etiquette" style="margin-top:8px;font-size:14px">Avantageux</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer aria-label="pied de page" class="pied-de-page" id="contacts">
+          <div class="contenu-pied">
+            <div class="grille-pied">
+              <div class="boite-contact">
+                <div style="font-weight:700">Contacts</div>
+                <div style="font-size:13px; color:var(--muted)">Moscou, rue Exemple, n°1</div>
+                <div style="font-size:13px; color:var(--muted)">+7 (495) xxx-XX-XX</div>
+                <div style="font-size:13px; color:var(--muted)">info@domena.ru</div>
+                <div aria-hidden="true" class="icones" style="display:flex;gap:8px">
+                  <div style="width:32px;height:32px;border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center">VK</div>
+                  <div style="width:32px;height:32px;border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center">IG</div>
+                  <div style="width:32px;height:32px;border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center">TT</div>
+                </div>
+              </div>
+              
+              <div class="liens-pied">
+                <h5>Navigation</h5>
+                <ul>
+                  <li>Accueil</li>
+                  <li>Catalogue</li>
+                  <li>À propos</li>
+                  <li>Contacts</li>
+                  <li>Calculateur hypothécaire</li>
+                </ul>
+              </div>
+              
+              <div class="liens-pied">
+                <h5>Comment acheter</h5>
+                <ul>
+                  <li>Achat en ligne</li>
+                  <li>Paiement échelonné</li>
+                  <li>Reprise (Trade-in)</li>
+                  <li>Remise des clés</li>
+                </ul>
+              </div>
+              
+              <div class="liens-pied">
+                <h5>Informations légales</h5>
+                <ul>
+                  <li>Politique de confidentialité</li>
+                  <li>Consentement au traitement</li>
+                  <li>Coordonnées légales</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="bas-pied">
+              Des questions ou suggestions ? Écrivez-nous. — Ce site est fourni à titre informatif et ne constitue pas une offre publique.
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

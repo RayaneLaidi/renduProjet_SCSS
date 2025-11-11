@@ -1,0 +1,701 @@
+
+
+/* Variables CSS */
+:root {
+  --bg: #eef4ee;
+  --card: #ffffff;
+  --muted: #6b6b6b;
+  --accent: #9aa988;
+  --accent-2: #88956b;
+  --accent-dark: #2f401e;
+  --rounded: 28px;
+  --container-w: 1200px;
+}
+
+/* Import des mixins */
+@import 'mixins';
+
+/* Reset et base */
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: var(--bg);
+  color: #0b0b0b;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.45;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* Layout principal */
+.conteneur-externe { @include flex-center; }
+.conteneur {
+  @include container;
+}
+
+/* En-tête */
+.en-tete-site {
+  @include floating-header;
+  @include flex-space-between;
+  gap: 18px;
+  padding: 10px 18px;
+  margin-top: 5vh;
+
+  .marque { font-weight: 600; }
+
+  nav.principal {
+    @include flex-center;
+    gap: 18px;
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  .bouton-question {
+    @include button-accent;
+  }
+}
+
+/* Section hero */
+.hero {
+  @include hero-overlay;
+  margin-top: 0;
+
+  .arriere-plan {
+    position: absolute;
+    inset: 0;
+    background-image: url("https://img.pikbest.com/wp/202409/modern-house-illustrated-in-3d_9715783.jpg!bw700");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .contenu-hero {
+    position: absolute;
+    bottom: 40px;
+    left: 56px;
+    right: 56px;
+    z-index: 2;
+    color: white;
+    max-width: 900px;
+
+    h1 {
+      font-size: 48px;
+      font-weight: 800;
+      margin: 0 0 10px;
+      line-height: 1.1;
+    }
+
+    p {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.95);
+      margin: 0;
+    }
+  }
+}
+
+/* Carte à propos */
+.carte-a-propos {
+  margin-top: 20px;
+  @include card(30px, 0 6px 18px rgba(12,12,12,0.05));
+  padding: 22px;
+  @include flex-center-vertical;
+  gap: 20px;
+
+  .gauche {
+    flex: 1;
+    padding-right: 10px;
+    @include flex-column;
+
+    h3 {
+      margin: 0 0 10px 0;
+      font-size: 18px;
+      color: var(--accent-dark);
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .statistiques {
+      @include grid-cols-gap(3, 12px);
+      margin-top: 16px;
+      align-items: start;
+
+      .element-stat {
+        @include stat-item;
+
+        .nombre {
+          font-weight: 700;
+          font-size: 16px;
+          color: var(--accent-dark);
+        }
+
+        .libelle {
+          font-size: 13px;
+          color: var(--muted);
+          margin-top: 6px;
+        }
+      }
+    }
+  }
+
+  .droite {
+    width: 420px;
+    @include flex-column;
+
+    .vignette {
+      width: 100%;
+      height: 100%;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+  }
+}
+
+/* Tuiles d'action */
+.tuiles-action {
+  @include grid-cols-gap(5, 14px);
+  margin-top: 18px;
+  align-items: stretch;
+
+  .tuile {
+    @include action-tile;
+
+    .icone {
+      grid-row: 1 / span 2;
+      grid-column: 1 / 2;
+      @include icon-circle(48px);
+    }
+
+    .titre {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      font-weight: 700;
+      font-size: 14px;
+      color: #222;
+      align-self: end;
+      line-height: 1.1;
+    }
+
+    .sous-titre {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+      font-size: 12px;
+      color: var(--muted);
+      align-self: start;
+    }
+
+    &.accentuee {
+      background: var(--accent-2);
+      color: white;
+      border: 0;
+
+      .icone {
+        background: rgba(255,255,255,0.08);
+      }
+    }
+  }
+}
+
+/* Section financière */
+.section-financiere {
+  margin-top: 28px;
+  @include section-gradient;
+  font-family: "Inter", sans-serif;
+  color: #1a1a1a;
+
+  .en-tete {
+    margin-bottom: 40px;
+
+    h1 {
+      font-size: 34px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+      max-width: 700px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+  }
+
+  .contenu-financier {
+    @include flex-space-between;
+    align-items: stretch;
+    gap: 10px;
+
+    .carte {
+      flex: 1;
+      @include card(16px, 0 4px 10px rgba(0,0,0,0.1));
+      padding: 30px 35px;
+      @include flex-column;
+      justify-content: space-between;
+      transition: transform .2s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+      }
+
+      h2 {
+        font-size: 20px;
+        margin-bottom: 16px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      li { margin-bottom: 12px; font-size: 15px; }
+      
+      .bouton-action {
+        @include button-accent;
+        border-radius: 8px;
+        padding: 12px 24px;
+        font-weight: 600;
+        margin-top: 20px;
+
+        &:hover { background: #2c351f; }
+      }
+    }
+
+    /* Carte calculateur */
+    .carte-calcul {
+      background: #ffffff;
+
+      .champ {
+        margin-bottom: 18px;
+
+        label { font-size: 14px; color: #444; display: block; margin-bottom: 6px; }
+        input[type="range"] { @include range-input; }
+        .valeur { margin-top: 6px; font-weight: 600; }
+      }
+
+      .resultat {
+        margin-top: 20px;
+        font-size: 15px;
+
+        p { margin: 6px 0; }
+      }
+    }
+
+    .carte-standard { background: #ffffff; }
+
+    .carte-eco {
+      background: #2e3b1e;
+      color: #fff;
+      position: relative;
+
+      .sous-titre { font-size: 15px; opacity: 0.9; margin-bottom: 20px; }
+      .etiquette { margin-top: 30px; font-size: 28px; font-weight: 800; color: #c8e8a8; text-align: right; }
+    }
+  }
+
+  /* Bloc hypothèque */
+  .bloc-hypotheque {
+    margin-top: 6px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .gauche-hypotheque {
+    width: 420px;
+    background: transparent;
+    border-radius: 18px;
+    padding: 0;
+
+    input[type="number"], select {
+      @include input-base;
+    }
+    input[type="range"] { @include range-input; }
+
+    .bouton {
+      margin-top: 10px;
+      display: inline-block;
+      @include button-accent;
+      padding: 10px 18px;
+    }
+  }
+
+  .droite-hypotheque {
+    flex: 1;
+    @include flex-column;
+    gap: 12px;
+  }
+
+  .ligne-comparaison {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .carte-hypotheque {
+    @include card(12px, 0 6px 12px rgba(0,0,0,0.04));
+    padding: 12px;
+    flex: 1;
+
+    h4 { margin: 0 0 8px 0; font-size: 13px; color: var(--muted); }
+    .taux { font-weight: 700; font-size: 18px; margin-top: 6px; }
+    .gros-texte { font-weight: 800; font-size: 18px; margin-top: 10px; }
+  }
+
+  .carte-hypotheque.verte {
+    background: var(--accent-dark);
+    color: white;
+    @include flex-column;
+    justify-content: space-between;
+    border-radius: 12px;
+    padding: 12px;
+    width: 100%;
+
+    .label-epargne { font-size: 12px; opacity: 0.9; }
+    .montant-epargne { font-size: 16px; font-weight: 800; margin-top: 6px; }
+    .etiquette-benefice {
+      font-size: 11px;
+      background: rgba(255,255,255,0.08);
+      padding: 6px 8px;
+      border-radius: 999px;
+      display: inline-block;
+      align-self: flex-end;
+    }
+  }
+
+  .grille-rapide {
+    @include grid-cols-gap(4, 14px);
+    margin-top: 18px;
+  }
+
+  .element-rapide {
+    @include card(12px, 0 8px 12px rgba(0,0,0,0.04));
+    padding: 12px 10px;
+    @include flex-column;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    transition: transform .14s ease, box-shadow .14s ease;
+    cursor: pointer;
+    text-align: center;
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 20px rgba(0,0,0,0.08);
+    }
+
+    .icone {
+      @include icon-circle(56px);
+    }
+
+    .libelle { font-weight: 600; font-size: 13px; color: #222; }
+    .sous-texte { font-size: 12px; color: var(--muted); }
+  }
+
+  /* Ajustements responsive */
+  .contenu-financier {
+    gap: 16px !important;
+
+    .carte {
+      padding: 16px 18px !important;
+      border-radius: 10px !important;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06) !important;
+      flex: 1 1 260px !important;
+      max-width: 320px !important;
+    }
+  }
+
+  .contenu-financier .carte {
+    padding: 12px 14px !important;
+    gap: 6px !important;
+    overflow: visible !important;
+    flex: 1 1 280px !important;
+    max-width: 300px !important;
+    height: auto !important;
+  }
+
+  .contenu-financier .carte {
+    flex: 1 1 280px !important;
+    max-width: 320px !important;
+    max-height: 320px !important;
+    padding: 12px 14px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08) !important;
+    @include flex-column;
+    justify-content: space-between !important;
+    overflow: hidden !important;
+  }
+
+  .contenu-financier .carte h2 {
+    font-size: 15px !important;
+    margin-bottom: 6px !important;
+  }
+  .contenu-financier .carte ul {
+    margin: 4px 0 !important;
+    padding: 0 !important;
+    list-style: none;
+  }
+  .contenu-financier .carte li {
+    font-size: 13px !important;
+    margin-bottom: 4px !important;
+    line-height: 1.3 !important;
+  }
+  .contenu-financier .carte-calcul label {
+    font-size: 12px !important;
+  }
+  .contenu-financier .carte-calcul .valeur,
+  .contenu-financier .carte-calcul .resultat {
+    font-size: 12px !important;
+  }
+  .contenu-financier .bouton-action {
+    font-size: 12px !important;
+    padding: 8px 12px !important;
+  }
+  .contenu-financier .carte-eco .etiquette {
+    font-size: 16px !important;
+    margin-top: 8px !important;
+  }
+
+  @include responsive(900px) {
+    .contenu-financier { 
+      flex-direction: column; 
+      align-items: center; 
+    }
+    .contenu-financier .carte { 
+      max-width: 100% !important; 
+      max-height: none !important; 
+    }
+  }
+}
+
+/* Pied de page */
+.pied-de-page {
+  margin-top: 24px;
+  background: transparent;
+  padding: 20px 0 60px 0;
+
+  .contenu-pied {
+    @include card(18px, 0 6px 12px rgba(12,12,12,0.06));
+    padding: 24px;
+
+    .grille-pied {
+      display: grid;
+      grid-template-columns: 220px 1fr 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+
+      .boite-contact {
+        background: #f6fbf6;
+        padding: 16px;
+        border-radius: 12px;
+        @include flex-column;
+        gap: 8px;
+      }
+
+      .liens-pied {
+        h5 {
+          margin: 0 0 12px 0;
+          font-size: 14px;
+          color: var(--accent-dark);
+          font-weight: 600;
+        }
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          @include flex-column;
+          gap: 8px;
+
+          li { 
+            color: var(--muted); 
+            font-size: 13px;
+            transition: color 0.2s ease;
+            
+            &:hover {
+              color: var(--accent-dark);
+            }
+          }
+        }
+      }
+    }
+
+    .bas-pied {
+      margin-top: 20px;
+      border-top: 1px solid rgba(0,0,0,0.04);
+      padding-top: 16px;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+    }
+  }
+}
+
+/* Responsive amélioré */
+@include responsive(1100px) {
+  .carte-a-propos { flex-direction: column; }
+  .droite { width: 100%; }
+  .ligne-comparaison { flex-direction: column; }
+  
+  .pied-de-page .contenu-pied .grille-pied { 
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .grille-rapide { grid-template-columns: repeat(2,1fr); }
+  .tuiles-action { grid-template-columns: repeat(2, 1fr); }
+}
+
+@include responsive(900px) {
+  .section-financiere .contenu-financier {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .section-financiere .contenu-financier .carte {
+    max-width: 100% !important;
+  }
+}
+
+@include responsive(768px) {
+  .statistiques {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+
+    .element-stat { 
+      min-width: 200px; 
+      flex: 0 0 auto; 
+    }
+  }
+
+  .en-tete-site { 
+    top: 12px; 
+    border-radius: 18px; 
+    padding: 8px 12px; 
+  }
+  
+  .hero { 
+    height: 70vh; 
+    border-radius: 18px; 
+  }
+  
+  .hero h1 { 
+    font-size: 32px; 
+  }
+  
+  .conteneur { 
+    padding: 12px; 
+  }
+  
+  nav.principal { 
+    display: none; 
+  }
+  
+  .contenu-hero { 
+    padding: 20px; 
+    left: 20px;
+    right: 20px;
+    bottom: 30px;
+  }
+  
+  .grille-rapide { 
+    grid-template-columns: repeat(2,1fr); 
+  }
+  
+  .tuiles-action { 
+    grid-template-columns: 1fr; 
+  }
+  
+  .section-financiere { 
+    padding: 14px; 
+  }
+  
+  .gauche-hypotheque { 
+    width: 100%; 
+  }
+  
+  .bloc-hypotheque { 
+    flex-direction: column; 
+  }
+  
+  .ligne-comparaison { 
+    flex-direction: column; 
+  }
+  
+  .pied-de-page .contenu-pied {
+    padding: 16px;
+  }
+}
+
+@include responsive(480px) {
+  .hero { 
+    height: 60vh; 
+  }
+  
+  .hero h1 { 
+    font-size: 24px; 
+  }
+  
+  .contenu-hero p {
+    font-size: 14px;
+  }
+  
+  .tuiles-action .tuile {
+    grid-template-columns: 40px 1fr;
+    gap: 6px 10px;
+  }
+  
+  .grille-rapide {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Styles d'en-tête raffinés */
+.en-tete-site {
+  top: 14px;
+  padding: 8px 18px;
+  border-radius: 22px;
+  height: 56px;
+  @include flex-center;
+  gap: 40px;
+
+  .marque {
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--accent-dark);
+    position: absolute;
+    left: 24px;
+  }
+}
+
+nav.principal {
+  @include flex-center;
+  gap: 28px;
+  font-size: 14px;
+}
+
+.bouton-question {
+  position: absolute;
+  right: 24px;
+  @include button-accent;
+  padding: 6px 12px;
+  font-size: 13px;
+}
